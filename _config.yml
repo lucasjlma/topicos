@@ -22,6 +22,9 @@ baseurl: ""
 cover: "/assets/cover.png"
 logo: "/assets/logo.png"
 
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Build settings
 markdown: kramdown
 

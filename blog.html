@@ -16,12 +16,29 @@ permalink: /blog/
     </div>
   </div>
 </section>
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <div class="post-area">
-  <a href="{{ post.url | prepend: site.baseurl }}" class="bold">{{ post.title }}</a>
+  <a href="{{ post.url | prepend: paginator.url }}" class="bold">{{ post.title }}</a>
   <p class="post-date">{{ post.date | date_to_long_string }}</p>
   <p>
     {{ post.content | strip_html | truncatewords: 50 }}
   </p>
 </div>
 {% endfor %}
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+  <a href="{{paginator.previous_page_path}}" class="previous">Anterior</a>
+  {% else %}
+  <span class="previous">Anterior</span>
+  {% endif %}
+
+  <span class="page_number">Página: {{paginator.page}} de {{paginator.total_pages}}</span>
+  {% if paginator.net_page %}
+  <a href="{{paginator.next_page_path}}" class="next">Próxima</a>
+  {% else %}
+  <span class="previous">Próxima</span>
+  {% endif %}
+</div>
+
+<!-- Verificar pq os posts n estão aparencendo -->
