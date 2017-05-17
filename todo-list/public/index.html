@@ -5,17 +5,18 @@
 <meta charset="utf-8">
   <title>Lista Colaborativa</title>
   <link rel='stylesheet' href='/stylesheets/style.css'></link>
+  <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'></link>
 </head>
 
 <body>
-<div id='content'>
+<div id='content' class="container">
   <h1>Lista de Tarefas</h1>
-  <form id="completed">
-    <div id='tasks'></div>
+  <form id="completed" class="form">
+    <div id='tasks' class="col-md-6"></div>
   </form>
   
 
-  <form id='send-form'>
+  <form id='send-form' class="col-md-6">
     <input id='title' placeholder="Título" />
     <input id='author' placeholder="Autor"/>
     <input id='date' placeholder="Data" type="date" />

@@ -18,10 +18,10 @@ function processUserInput(todolist, socket) {
 
   var $tarefa = $('\
     <div class="task-container">\
-      <div class="check">\
-        <input type="checkbox" name="task" value="nao-sei">\
+      <div class="check col-md-1">\
+        <input type="checkbox" name="task" value="nao-sei" class="form-control">\
       </div>\
-      <div class="task-content" style="border: 1px solid #000">\
+      <div class="task-content col-md-11 form-control" style="border: 1px solid #000">\
         <h4 class="title">'+ title +'</h4>\
         <span class="author">' +author +'</span>\
         <span class="date">' + date +'</span>\
@@ -51,26 +51,26 @@ $(document).ready(function() {
 
   //Lida com o evento nameResult, que contém o resultado da tentativa
   //De mudança de nome
-  socket.on('nameResult', function(result) {
-    var message;
+  // socket.on('nameResult', function(result) {
+  //   var message;
 
-    if (result.success) {
-      message = 'You are now known as ' + result.name + '.';
-    } else {
-      message = result.message;
-    }
-    //Insere a mensagem na tela
-    $('#messages').append(divSystemContentElement(message));
-  });
+  //   if (result.success) {
+  //     message = 'You are now known as ' + result.name + '.';
+  //   } else {
+  //     message = result.message;
+  //   }
+  //   //Insere a mensagem na tela
+  //   $('#messages').append(divSystemContentElement(message));
+  // });
 
   //Lida com o evento joinresult, que recebe o resultado de
   //uma mudança de sala
-  socket.on('joinResult', function(result) {
-    //Muda o nome da sala
-    $('#room').text(result.room);
-    //Insere a mensagem de que a sala foi alterada
-    $('#messages').append(divSystemContentElement('Room changed.'));
-  });
+  // socket.on('joinResult', function(result) {
+  //   //Muda o nome da sala
+  //   $('#room').text(result.room);
+  //   //Insere a mensagem de que a sala foi alterada
+  //   $('#messages').append(divSystemContentElement('Room changed.'));
+  // });
 
   //Lida com o evento message
   socket.on('message', function (message) {
@@ -80,29 +80,29 @@ $(document).ready(function() {
   });
 
   //Lida com as salas disponíveis
-  socket.on('rooms', function(rooms) {
-    $('#room-list').empty();
+  // socket.on('rooms', function(rooms) {
+  //   $('#room-list').empty();
 
-    //Varre as salas disponíveis e as imprime na tela
-    for(var room in rooms) {
-      room = room.substring(1, room.length);
-      if (room != '') {
-        $('#room-list').append(divEscapedContentElement(room));
-      }
-    }
+  //   //Varre as salas disponíveis e as imprime na tela
+  //   for(var room in rooms) {
+  //     room = room.substring(1, room.length);
+  //     if (room != '') {
+  //       $('#room-list').append(divEscapedContentElement(room));
+  //     }
+  //   }
 
-    //Ao clicar no nome de uma sala, executa-se um join
-    $('#room-list div').click(function() {
-      todolist.processCommand('/join ' + $(this).text());
-      $('#send-message').focus();
-    });
-  });
+  //   //Ao clicar no nome de uma sala, executa-se um join
+  //   $('#room-list div').click(function() {
+  //     todolist.processCommand('/join ' + $(this).text());
+  //     $('#send-message').focus();
+  //   });
+  // });
 
   //Função que periodicamente emite o evento rooms ao servidor, requisitando
   //as salas disponíveis
-  setInterval(function() {
-    socket.emit('rooms');
-  }, 1000);
+  // setInterval(function() {
+  //   socket.emit('rooms');
+  // }, 1000);
 
   //Cria efeito de focus na caixa de mensagens
   $('#send-message').focus();
