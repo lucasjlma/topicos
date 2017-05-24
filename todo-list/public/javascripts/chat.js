@@ -4,18 +4,17 @@ var ToDoList = function(socket) {
 };
 
 //Função que envia uma mensagem ao servidor para ser repassada aos demais
-ToDoList.prototype.sendMessage = function(text) {
-  var message = {
-  	room: "Lobby",
-  	text: text
-  };
+ToDoList.prototype.sendMessage = function(data) {
+  // var message = {
+  // 	text: data
+  // };
   //Emite o evento message ao servidor
-  this.socket.emit('message', message);
+  this.socket.emit('message', data);
 };
 
-ToDoList.prototype.addTask = function(message){
-  this.socket.emit('message', message);
-}
+// ToDoList.prototype.addTask = function(message){
+//   this.socket.emit('message', message);
+// }
 
 //Emite ao servidor um evento de mudança de sala
 // ToDoList.prototype.changeRoom = function(room) {

@@ -140,9 +140,8 @@ function handleMessageBroadcasting(socket) {
   socket.on('message', function (message) {
     //Dispara o evento message do lado cliente para todos os
     //usuários conectados na sala
-    socket.broadcast.to(message.room).emit('message', {
-      text: nickNames[socket.id] + ': ' + message.text
-    });
+    console.log(message.titulo);
+    socket.broadcast.to("Lobby").emit('message', message);
   });
 }
 

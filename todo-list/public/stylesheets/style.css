@@ -58,7 +58,7 @@ a {
   padding: 5px 20px;
   color: #333;
 }
-.priority {
+/*.priority {
   background: gray;
   -moz-transform: rotate(270deg);
   transform: rotate(270deg);
@@ -69,7 +69,7 @@ a {
   top: 21px;
   text-align: center;
   padding: 4px 0;
-}
+}*/
 .priority[data-priority="Alta"]{
   background-color: red;
 }
