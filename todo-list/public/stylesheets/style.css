@@ -51,3 +51,41 @@ a {
 #help {
   font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+.task-content {
+  border: 1px solid #e3e3e3;
+  background: white;
+  padding: 5px 20px;
+  color: #333;
+}
+.priority {
+  background: gray;
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  height: 27px;
+  width: 68.8px;
+  position: absolute;
+  right: 82px;
+  top: 21px;
+  text-align: center;
+  padding: 4px 0;
+}
+.priority[data-priority="Alta"]{
+  background-color: red;
+}
+.priority[data-priority="Média"]{
+  background-color: teal;
+}
+.priority[data-priority="Baixa"]{
+  background-color: yellow;
+}
+body{
+  //background:  #ff5db1; /* Old browsers */
+  //background: -webkit-linear-gradient(135deg, #ff5db1, #ef017c, #c40186); /* For Safari 5.1 to 6.0 */
+  //background: -o-linear-gradient(135deg, #ff5db1, #ef017c, #c40186);  For Opera 11.1 to 12.0 
+  //background: -moz-linear-gradient(135deg, #ff5db1, #ef017c, #c40186); /* For Firefox 3.6 to 15 */
+  //background: linear-gradient(135deg, #ff5db1, #ef017c, #c40186); /* Standard syntax */
+
+  background-color: #fafafa;
+  min-height: 100vh;
+}

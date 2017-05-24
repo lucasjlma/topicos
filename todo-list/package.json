@@ -4,7 +4,10 @@
   "description": "Lista de Tarefas colaborativa",
   "dependencies": {
     "socket.io": "~0.9.6",
-     "mime": "~1.2.7",
-     "events": "~1.1.1"
+    "mime": "~1.2.7",
+    "events": "~1.1.1"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1"
   }
 }

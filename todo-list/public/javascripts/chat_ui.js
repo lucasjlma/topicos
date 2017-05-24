@@ -18,28 +18,29 @@ function processUserInput(todolist, socket) {
 
   var $tarefa = $('\
     <div class="task-container">\
-      <div class="check col-md-1">\
-        <input type="checkbox" name="task" value="nao-sei" class="form-control">\
-      </div>\
-      <div class="task-content col-md-11 form-control" style="border: 1px solid #000">\
-        <h4 class="title">'+ title +'</h4>\
-        <span class="author">' +author +'</span>\
-        <span class="date">' + date +'</span>\
-        <span class="priority">'+ priority+ '</span>\
-      </div>\
+      <div class="checkbox">\
+      <label>\
+        <input type="checkbox" name="task" value="">\
+        <div class="task-content">\
+          <h4 class="title">'+ title +'</h4>\
+          <span class="author">' +author +'</span>\
+          <span class="date">' + date +'</span>\
+          <span class="priority" data-priority="'+ priority+ '">'+ priority+ '</span>\
+        </div>\
+      </label>\
     </div>\
-');
+  ');
 
-
-  var systemMessage;
-    todolist.sendMessage($('#tasks').html(), $tarefa);
-    $('#tasks').append($tarefa);
-    $('#tasks').scrollTop($('#tasks').prop('scrollHeight'));
-    // $('#tasks').append(tarefa);
+  todolist.sendMessage(lixo2);
+  $('#tasks').append(lixo2);
+  $('#tasks').scrollTop($('#tasks').prop('scrollHeight'));
 
 
     // limpar os inputs
-  $('#send-message').val('');
+  $('#title').val('');
+  $('#author').val('');
+  $('#date').val('');
+  $('#priority').val('');
 }
 
 //Estabelece a conexão ao servidor
@@ -47,7 +48,7 @@ var socket = io.connect();
 
 $(document).ready(function() {
   //Cria uma instância de chat no lado cliente
-  var todolist = new Chat(socket);
+  var todolist = new ToDoList(socket);
 
   //Lida com o evento nameResult, que contém o resultado da tentativa
   //De mudança de nome
@@ -76,7 +77,7 @@ $(document).ready(function() {
   socket.on('message', function (message) {
     //Imprime a mensagem na tela
     var newElement = $('<div></div>').text(message.text);
-    $('#messages').append(newElement);
+    $('#tasks').append(newElement);
   });
 
   //Lida com as salas disponíveis
@@ -105,7 +106,6 @@ $(document).ready(function() {
   // }, 1000);
 
   //Cria efeito de focus na caixa de mensagens
-  $('#send-message').focus();
 
   //Submete a entrada de usuário ao tratador de input
   $('#send-form').submit(function() {

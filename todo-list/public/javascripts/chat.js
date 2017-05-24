@@ -1,32 +1,31 @@
 //Construtor, liga o socket ao objeto
-var Chat = function(socket) {
+var ToDoList = function(socket) {
   this.socket = socket;
 };
 
 //Função que envia uma mensagem ao servidor para ser repassada aos demais
-Chat.prototype.sendMessage = function(room, text) {
+ToDoList.prototype.sendMessage = function(text) {
   var message = {
-    room: room,
-    text: text
+  	room: "Lobby",
+  	text: text
   };
   //Emite o evento message ao servidor
   this.socket.emit('message', message);
 };
 
-Chat.prototype.addTask = function(message){
-  this.socket.emit(message,)
-
+ToDoList.prototype.addTask = function(message){
+  this.socket.emit('message', message);
 }
 
 //Emite ao servidor um evento de mudança de sala
-// Chat.prototype.changeRoom = function(room) {
+// ToDoList.prototype.changeRoom = function(room) {
 //   this.socket.emit('join', {
 //     newRoom: room
 //   });
 // };
 
 //Verifica qual é o comando e toma a ação apropriada
-// Chat.prototype.processCommand = function(command) {
+// ToDoList.prototype.processCommand = function(command) {
 //   var words = command.split(' ');
 //   var command = words[0]
 //                 .substring(1, words[0].length)

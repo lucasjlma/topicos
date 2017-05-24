@@ -2,36 +2,55 @@
 <html lang='en'>
 
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lista Colaborativa</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
   <link rel='stylesheet' href='/stylesheets/style.css'></link>
-  <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'></link>
+  
 </head>
 
 <body>
-<div id='content' class="container">
-  <h1>Lista de Tarefas</h1>
-  <form id="completed" class="form">
-    <div id='tasks' class="col-md-6"></div>
-  </form>
-  
+  <div id='content' class="container">
+    <h1>Lista de Tarefas</h1>
+    <form id="completed" class="form">
+      <div id='tasks' class="col-md-6"></div>
+    </form>  
 
-  <form id='send-form' class="col-md-6">
-    <input id='title' placeholder="Título" />
-    <input id='author' placeholder="Autor"/>
-    <input id='date' placeholder="Data" type="date" />
-    <select id='priority'>
-      <option>Alta</option>
-      <option>Média</option>
-      <option>Baixa</option>
-    </select> 
-    <input id='send-button' type='submit' value='Send'/>
-  </form>
-</div>
+    <form id='send-form' class="col-md-6">
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input id='title' placeholder="Atividade 1" class="form-control col-xs-12" />
+      </div>
+      
+      <div class="form-group">
+        <label for="author">Autor</label>
+        <input id='author' placeholder="Daniel Saad" class="form-control col-xs-12"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="date">Data</label>
+        <input id='date' placeholder="01/01/2017" type="date" class="form-control col-xs-12"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="priority">Prioridade</label>
+        <select id='priority' class="form-control col-xs-12">
+          <option>Alta</option>
+          <option>Média</option>
+          <option>Baixa</option>
+        </select> 
+      </div>
+      
+      <button id='send-button' type='submit' value='Send' class="btn btn-default">Enviar</button>
+    </form>
+  </div>
 
-<script src='/socket.io/socket.io.js' type='text/javascript'></script>
-<script src='http://code.jquery.com/jquery-1.8.0.min.js' type='text/javascript'></script>
-<script src='/javascripts/chat.js' type='text/javascript'></script>
-<script src='/javascripts/chat_ui.js' type='text/javascript'></script>
+  <script src='/socket.io/socket.io.js' type='text/javascript'></script>
+  <script src='http://code.jquery.com/jquery-1.8.0.min.js' type='text/javascript'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src='/javascripts/chat.js' type='text/javascript'></script>
+  <script src='/javascripts/chat_ui.js' type='text/javascript'></script>
 </body>
 </html>
